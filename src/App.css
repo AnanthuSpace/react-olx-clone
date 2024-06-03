@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'OLXFont';
+  src: url('/fonts/olx-font.woff2') format('woff2'),
+    url('/fonts/olx-font.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'OLXFont', sans-serif;
+  margin: 0%;
+  padding: 0%;
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
