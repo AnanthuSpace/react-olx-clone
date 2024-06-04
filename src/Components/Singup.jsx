@@ -1,59 +1,106 @@
-import React from 'react';
-
-import Logo from '../../olx-logo.png';
-import './Signup.css';
+import { useState, useContext } from "react";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
+import { useNavigate, Link } from "react-router-dom";
+import Logo from "../../public/Images/olx-logo.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../../public/Signup.css";
+import { FirebaseContext } from "../Store/FirebaseContext";
 
 export default function Signup() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const { firebase } = useContext(FirebaseContext);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(name, email, phone, password);
+    const auth = getAuth(firebase);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log("User created : ", user);
+
+        const db = getFirestore(firebase);
+
+        const userData = {
+          id: userCredential.user.uid,
+          username: name,
+          email: email,
+          phone: phone,
+        };
+        console.log("Working");
+
+        setDoc(doc(db, "users", user.uid), userData)
+
+        toast.success("User registered successfully", {
+          closeButton: false,
+          autoClose: 2000,
+          hideProgressBar: true,
+        });
+
+        setTimeout(() => {
+          navigate("/login");
+        }, 2500);
+      })
+      .catch((error) => {
+        toast.error("User already exists");
+        console.log("Error creating user : ", error);
+      });
+  };
+
   return (
-    <div>
+    <>
+      <ToastContainer />
       <div className="signupParentDiv">
-        <img width="200px" height="200px" src={Logo}></img>
-        <form>
-          <label htmlFor="fname">Username</label>
-          <br />
+        <img width="150px" height="150px" src={Logo} alt="OLX Logo" />
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="username">Username</label>
           <input
             className="input"
             type="text"
-            id="fname"
+            id="username"
             name="name"
-            defaultValue="John"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
-          <br />
-          <label htmlFor="fname">Email</label>
-          <br />
+          <label htmlFor="email">Email</label>
           <input
             className="input"
             type="email"
-            id="fname"
+            id="email"
             name="email"
-            defaultValue="John"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <br />
-          <label htmlFor="lname">Phone</label>
-          <br />
+          <label htmlFor="phone">Phone</label>
           <input
             className="input"
             type="number"
-            id="lname"
+            id="phone"
             name="phone"
-            defaultValue="Doe"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
           />
-          <br />
-          <label htmlFor="lname">Password</label>
-          <br />
+          <label htmlFor="password">Password</label>
           <input
             className="input"
             type="password"
-            id="lname"
+            id="password"
             name="password"
-            defaultValue="Doe"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <br />
-          <br />
-          <button>Signup</button>
+          <button type="submit">Signup</button>
         </form>
-        <a>Login</a>
+        <div className="alreadyAccount">
+        <p><Link to={"/login"}>Already have an account Login</Link></p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
