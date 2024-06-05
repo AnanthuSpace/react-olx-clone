@@ -35,7 +35,7 @@ export default function Signup() {
         };
         console.log("Working");
 
-        setDoc(doc(db, "users", user.uid), userData)
+        setDoc(doc(db, "users", user.uid), userData);
 
         toast.success("User registered successfully", {
           closeButton: false,
@@ -98,7 +98,9 @@ export default function Signup() {
           <button type="submit">Signup</button>
         </form>
         <div className="alreadyAccount">
-        <p><Link to={"/login"}>Already have an account Login</Link></p>
+          <p>
+            <Link to={"/login"}>Already have an account Login</Link>
+          </p>
         </div>
       </div>
     </>

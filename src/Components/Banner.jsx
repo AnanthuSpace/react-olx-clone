@@ -1,6 +1,5 @@
-import React from 'react';
-import '../../public/Banner.css';
-import Arrow from '../assets/Arrow';
+import "../../public/Banner.css";
+import Arrow from "../assets/Arrow";
 
 function Banner() {
   return (
@@ -9,7 +8,7 @@ function Banner() {
         <div className="menuBar">
           <div className="categoryMenu">
             <span>ALL CATEGORIES</span>
-            <Arrow/>
+            <Arrow />
           </div>
           <div className="otherQuickOptions">
             <span>Cars</span>
@@ -22,7 +21,7 @@ function Banner() {
           </div>
         </div>
         <div className="banner">
-          <img src="../../Images/banner-copy.png" alt="banner"/>
+          <img src="../../Images/banner-copy.png" alt="banner" />
         </div>
       </div>
     </div>

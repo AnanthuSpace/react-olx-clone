@@ -1,50 +1,74 @@
 .viewParentDiv {
-    padding-top: 4em;
-    display: flex;
-  }
-  .viewParentDiv .imageShowDiv {
-    padding: 16px;
-    width: 70vw;
-  }
-  .viewParentDiv .imageShowDiv img {
-    width: 65vw;
-    height: 85vh;
-  }
-  
-  .viewParentDiv .rightSection {
-    padding: 16px;
-    margin-top: 3em;
-    width: 30vw;
-  }
-  
-  .viewParentDiv .rightSection .productDetails :first-child {
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #002f34;
-    font-size: 34px;
-    line-height: 32px;
-    margin-bottom: 20px;
-  }
-  
-  .viewParentDiv .rightSection .productDetails {
-    border: 1px solid black;
-    padding: 6px;
-    border-radius: 6px;
-    margin-bottom: 2em;
-    width: 100%;
-  }
-  
-  .viewParentDiv .rightSection .contactDetails {
-    border: 1px solid black;
-    padding: 6px;
-    border-radius: 6px;
-  }
-  
-  .viewParentDiv .rightSection .contactDetails :first-child {
-    font-size: 20px;
-    line-height: 24px;
-    font-weight: 700;
-    color: #002f34;
-    font-weight: 400;
-    padding: 0;
-  }
+  padding-top: 4em;
+  display: flex;
+}
+
+.viewParentDiv .imageShowDiv {
+  padding: 16px;
+  width: 70vw;
+  display: flex;
+  /* Use Flexbox */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+}
+
+.viewParentDiv .imageShowDiv img {
+  max-width: 100%;
+  /* Ensure image scales within the container */
+  max-height: 100%;
+  /* Ensure image scales within the container */
+  object-fit: contain;
+  /* Ensure the image maintains aspect ratio */
+}
+
+.viewParentDiv .rightSection {
+  margin-right: 100px;
+  padding: 16px;
+  margin-top: 3em;
+  width: 30vw;
+}
+
+.rightParent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.viewParentDiv .rightSection .productDetails :first-child {
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #002f34;
+  font-size: 34px;
+  line-height: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.viewParentDiv .rightSection .productDetails {
+  border: 1px solid black;
+  padding: 6px;
+  border-radius: 6px;
+  margin-bottom: 2em;
+  text-align: center;
+  width: 100%;
+}
+
+.viewParentDiv .rightSection .contactDetails {
+  border: 1px solid black;
+  padding: 6px;
+  border-radius: 6px;
+  text-align: center;
+  width: 100%;
+}
+
+.viewParentDiv .rightSection .contactDetails :first-child {
+  font-size: 20px;
+  text-align: center;
+  line-height: 24px;
+  font-weight: 700;
+  color: #002f34;
+  font-weight: 400;
+  padding: 0;
+}

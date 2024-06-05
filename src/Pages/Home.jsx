@@ -1,12 +1,9 @@
-import React from 'react';
+import Header from "../Components/Header";
+import Banner from "../Components/Banner";
+import Posts from "../Components/Posts";
+import Footer from "../Components/Footer";
 
-import Header from '../Components/Header';
-import Banner from '../Components/Banner';
-
-import Posts from '../Components/Posts';
-import Footer from '../Components/Footer';
-
-function Home(props) {
+function Home() {
   return (
     <div className="homeParentDiv">
       <Header />
@@ -18,4 +15,3 @@ function Home(props) {
 }
 
 export default Home;
- 

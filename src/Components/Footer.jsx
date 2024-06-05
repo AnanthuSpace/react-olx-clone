@@ -1,5 +1,4 @@
-import React from 'react';
-import '../../public/Footer.css';
+import "../../public/Footer.css";
 
 function Footer() {
   return (
@@ -61,9 +60,18 @@ function Footer() {
             <p>FOLLOW US</p>
           </div>
           <div className="social-media">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png" alt="instagram" />
-            <img src="https://cdn-icons-png.flaticon.com/512/59/59439.png" alt="Facebook" />
-            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/twitter-icon.png" alt="Twitter" />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1384/1384031.png"
+              alt="instagram"
+            />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/59/59439.png"
+              alt="Facebook"
+            />
+            <img
+              src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/twitter-icon.png"
+              alt="Twitter"
+            />
           </div>
         </div>
       </div>
